@@ -28,14 +28,14 @@ namespace Delegation
             SetupApplication();
 
             InitializeComponent();
+
+            DisplayFakeDataInTextBox();
         }
 
         private void SetupApplication()
         {
             IDataLoader dataLoader = new FakeLoader();
             _dataCollection = DataAccess.GetCollection(dataLoader);
-
-            DisplayFakeDataInTextBox();
         }
 
         private void DisplayFakeDataInTextBox()
@@ -43,12 +43,17 @@ namespace Delegation
             textBox.Text = "";
             foreach (var d in _dataCollection.KilometersCards)
             {
-                textBox.Text += $"{ d.CardSymbol } dla { d.Car.Model } { d.Car.RegistrationNumber }.\nLista wyjazdów:";
+                textBox.Text += $"{ d.CardSymbol } dla { d.Car.Model } { d.Car.RegistrationNumber }.\n\nLista wyjazdów:\n";
                 foreach (var t in d.Trips)
                 {
-                    textBox.Text += $"{ t.DepartureDate } - { t.ArrivalDate } do { t.Destination } - ilość przejechanych km: { t.Distance }";
+                    textBox.Text += $"{ t.DepartureDate } - { t.ArrivalDate } do { t.Destination.Name } - ilość przejechanych km: { t.Distance }\n";
                 }
             }
+        }
+
+        private void textBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }
