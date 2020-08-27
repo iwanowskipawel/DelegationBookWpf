@@ -8,8 +8,8 @@ namespace DelegationLibrary.DataAccess
 {
     public class DriverRepository : IDriverRepository
     {
-        private ApplicationDbContext _context;
-        public DriverRepository(ApplicationDbContext context)
+        private DataCollection _context;
+        public DriverRepository(DataCollection context)
         {
             _context = context;
         }

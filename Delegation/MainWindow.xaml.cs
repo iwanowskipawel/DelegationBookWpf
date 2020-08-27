@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DelegationLibrary.DataAccess;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,18 @@ namespace Delegation
     /// </summary>
     public partial class MainWindow : Window
     {
+        IDataCollection _dataCollection;
         public MainWindow()
         {
+            SetupApplication();
+
             InitializeComponent();
+        }
+
+        private void SetupApplication()
+        {
+            IDataLoader dataLoader = new FakeLoader();
+            _dataCollection = DataAccess.GetCollection(dataLoader);
         }
     }
 }

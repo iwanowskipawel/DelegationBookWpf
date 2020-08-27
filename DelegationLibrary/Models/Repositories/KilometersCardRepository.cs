@@ -8,8 +8,8 @@ namespace DelegationLibrary.DataAccess
 {
     public class KilometersCardRepository : IKilometersCardRepository
     {
-        private ApplicationDbContext _context;
-        public KilometersCardRepository(ApplicationDbContext context)
+        private DataCollection _context;
+        public KilometersCardRepository(DataCollection context)
         {
             _context = context;
         }

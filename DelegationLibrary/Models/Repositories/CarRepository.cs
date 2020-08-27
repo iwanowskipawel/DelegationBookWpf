@@ -8,8 +8,8 @@ namespace DelegationLibrary.DataAccess
 {
     public class CarRepository : ICarRepository
     {
-        private ApplicationDbContext _context;
-        public CarRepository(ApplicationDbContext context)
+        private DataCollection _context;
+        public CarRepository(DataCollection context)
         {
             _context = context;
         }

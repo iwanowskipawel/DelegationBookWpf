@@ -8,8 +8,8 @@ namespace DelegationLibrary.DataAccess
 {
     public class BusinessTripRepository : IBusinessTripRepository
     {
-        private ApplicationDbContext _context;
-        public BusinessTripRepository(ApplicationDbContext context)
+        private DataCollection _context;
+        public BusinessTripRepository(DataCollection context)
         {
             _context = context;
         }

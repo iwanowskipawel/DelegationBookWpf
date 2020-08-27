@@ -8,11 +8,11 @@ namespace DelegationLibrary.DataAccess
 {
     public class ProjectRepository : IProjectRepository
     {
-        private ApplicationDbContext _context;
-        public ProjectRepository(ApplicationDbContext context)
+        private DataCollection _context;
+        public ProjectRepository(DataCollection context)
         {
             _context = context;
         }
-        public IQueryable<IProject> Projects => _context.Projects;
+        public IEnumerable<IProject> Projects => _context.Projects;
     }
 }

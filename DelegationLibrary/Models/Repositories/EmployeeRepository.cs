@@ -8,8 +8,8 @@ namespace DelegationLibrary.DataAccess
 {
     public class EmployeeRepository : IEmployeeRepository
     {
-        private ApplicationDbContext _context;
-        public EmployeeRepository(ApplicationDbContext context)
+        private DataCollection _context;
+        public EmployeeRepository(DataCollection context)
         {
             _context = context;
         }

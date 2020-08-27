@@ -4,8 +4,8 @@ using System.Text;
 
 namespace DelegationLibrary.DataAccess
 {
-    public class DataAccess
+    public static class DataAccess
     {
-
+        public static DataCollection GetCollection(IDataLoader loader) => loader.LoadData();
     }
 }

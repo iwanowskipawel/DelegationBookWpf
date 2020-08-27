@@ -8,11 +8,11 @@ namespace DelegationLibrary.DataAccess
 {
     public class AddressRepository : IAddressRepository
     {
-        private ApplicationDbContext _context;
-        public AddressRepository(ApplicationDbContext context)
+        private DataCollection _context;
+        public AddressRepository(DataCollection context)
         {
             _context = context;
         }
-        public IQueryable<IAddress> Addresses => _context.Addresses;
+        public IEnumerable<IAddress> Addresses => _context.Addresses;
     }
 }

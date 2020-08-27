@@ -8,8 +8,8 @@ namespace DelegationLibrary.DataAccess
 {
     public class CompanyRepository : ICompanyRepository
     {
-        private ApplicationDbContext _context;
-        public CompanyRepository(ApplicationDbContext context)
+        private DataCollection _context;
+        public CompanyRepository(DataCollection context)
         {
             _context = context;
         }
