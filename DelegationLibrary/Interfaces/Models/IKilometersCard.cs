@@ -6,7 +6,7 @@ namespace DelegationLibrary.Model
     {
         ICar Car { get; set; }
         string CardSymbol { get; set; }
-        string CardWorkCardNumber { get; set; }
+        string WorkCardNumber { get; set; }
         int KilometerCardID { get; set; }
         int TotalDistance { get; }
         List<IBusinessTrip> Trips { get; set; }

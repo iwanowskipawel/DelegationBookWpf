@@ -41,7 +41,7 @@ namespace DelegationLibrary.DataAccess
                             MeterStatus = 354456
                         },
                         CardSymbol = "7/2020",
-                        CardWorkCardNumber = "456",
+                        WorkCardNumber = "456",
                         Trips = new List<IBusinessTrip>()
                         {
                             new BusinessTrip() { 
