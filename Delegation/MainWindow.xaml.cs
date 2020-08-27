@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.DirectoryServices.ActiveDirectory;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,6 +31,7 @@ namespace Delegation
             InitializeComponent();
 
             DisplayFakeDataInTextBox();
+            DisplayFakeDataInDataGrid();
         }
 
         private void SetupApplication()
@@ -49,6 +51,11 @@ namespace Delegation
                     textBox.Text += $"{ t.DepartureDate } - { t.ArrivalDate } do { t.Destination.Name } - ilość przejechanych km: { t.Distance }\n";
                 }
             }
+        }
+
+        private void DisplayFakeDataInDataGrid()
+        {
+            dataGrid.ItemsSource = _dataCollection.KilometersCards;
         }
 
         private void textBox_TextChanged(object sender, TextChangedEventArgs e)
