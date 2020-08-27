@@ -7,6 +7,6 @@ namespace DelegationLibrary.DataAccess
 {
     public class KilometersCardRepository
     {
-        public List<KilometersCard> KilometersCards { get; set; }
+        public List<IKilometersCard> KilometersCards { get; set; }
     }
 }

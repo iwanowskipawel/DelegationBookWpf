@@ -7,6 +7,6 @@ namespace DelegationLibrary.DataAccess
 {
     public class AddressRepository
     {
-        public List<Address> Addresses { get; set; }
+        public List<IAddress> Addresses { get; set; }
     }
 }

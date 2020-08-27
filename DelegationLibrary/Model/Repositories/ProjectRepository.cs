@@ -7,6 +7,6 @@ namespace DelegationLibrary.DataAccess
 {
     public class ProjectRepository
     {
-        public List<Project> Projects { get; set; }
+        public List<IProject> Projects { get; set; }
     }
 }

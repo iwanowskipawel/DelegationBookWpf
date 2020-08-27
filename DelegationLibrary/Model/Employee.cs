@@ -4,9 +4,9 @@ using System.Text;
 
 namespace DelegationLibrary.Model
 {
-    public class Employee : Person
+    public class Employee : Person, IEmployee
     {
         public int EmployeeID { get; set; }
-        public List<BusinessTrip> Trips { get; set; }
+        public List<IBusinessTrip> Trips { get; set; }
     }
 }

@@ -7,6 +7,6 @@ namespace DelegationLibrary.DataAccess
 {
     public class DestinationRepository
     {
-        public List<Destination> Destinations { get; set; }
+        public List<IDestination> Destinations { get; set; }
     }
 }

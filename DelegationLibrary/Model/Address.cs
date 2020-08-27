@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DelegationLibrary.Model
 {
-    public class Address
+    public class Address : IAddress
     {
         public int AddressID { get; set; }
         public string Street { get; set; }

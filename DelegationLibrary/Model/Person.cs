@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DelegationLibrary.Model
 {
-    public class Person
+    public abstract class Person
     {
         public int PersonID { get; set; }
         public string FirstName { get; set; }

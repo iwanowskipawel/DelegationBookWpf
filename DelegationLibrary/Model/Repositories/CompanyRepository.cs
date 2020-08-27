@@ -7,6 +7,6 @@ namespace DelegationLibrary.DataAccess
 {
     public class CompanyRepository
     {
-        public List<Company> Companies { get; set; }
+        public List<ICompany> Companies { get; set; }
     }
 }

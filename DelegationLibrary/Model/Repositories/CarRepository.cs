@@ -7,6 +7,6 @@ namespace DelegationLibrary.DataAccess
 {
     public class CarRepository
     {
-        public List<Car> Cars { get; set; }
+        public List<ICar> Cars { get; set; }
     }
 }

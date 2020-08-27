@@ -7,6 +7,6 @@ namespace DelegationLibrary.DataAccess
 {
     public class BusinessTripRepository
     {
-        public List<BusinessTrip> BusinessTrips{ get; set; }
+        public List<IBusinessTrip> BusinessTrips{ get; set; }
     }
 }

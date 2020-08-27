@@ -7,6 +7,6 @@ namespace DelegationLibrary.DataAccess
 {
     public class EmployeeRepository
     {
-        public List<Employee> Employees { get; set; }
+        public List<IEmployee> Employees { get; set; }
     }
 }

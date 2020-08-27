@@ -7,6 +7,6 @@ namespace DelegationLibrary.DataAccess
 {
     public class DriverRepository
     {
-        public List<Driver> Drivers { get; set; }
+        public List<IDriver> Drivers { get; set; }
     }
 }
