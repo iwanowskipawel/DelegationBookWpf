@@ -34,6 +34,21 @@ namespace Delegation
         {
             IDataLoader dataLoader = new FakeLoader();
             _dataCollection = DataAccess.GetCollection(dataLoader);
+
+            DisplayFakeDataInTextBox();
+        }
+
+        private void DisplayFakeDataInTextBox()
+        {
+            textBox.Text = "";
+            foreach (var d in _dataCollection.KilometersCards)
+            {
+                textBox.Text += $"{ d.CardSymbol } dla { d.Car.Model } { d.Car.RegistrationNumber }.\nLista wyjazdów:";
+                foreach (var t in d.Trips)
+                {
+                    textBox.Text += $"{ t.DepartureDate } - { t.ArrivalDate } do { t.Destination } - ilość przejechanych km: { t.Distance }";
+                }
+            }
         }
     }
 }
