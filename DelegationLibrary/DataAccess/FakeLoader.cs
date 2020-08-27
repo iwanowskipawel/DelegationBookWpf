@@ -7,7 +7,7 @@ namespace DelegationLibrary.DataAccess
 {
     public class FakeLoader : IDataLoader
     {
-        public DataCollection LoadData()
+        public IDataCollection LoadData()
         {
             Employee wieslaw = new Employee()
             {

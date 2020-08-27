@@ -2,6 +2,6 @@
 {
     public interface IDataLoader
     {
-        DataCollection LoadData();
+        IDataCollection LoadData();
     }
 }
