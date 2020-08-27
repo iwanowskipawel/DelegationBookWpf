@@ -13,6 +13,6 @@ namespace DelegationLibrary.DataAccess
         {
             _context = context;
         }
-        public IQueryable<ICompany> Companies => _context.Companies;
+        public IEnumerable<ICompany> Companies => _context.Companies;
     }
 }

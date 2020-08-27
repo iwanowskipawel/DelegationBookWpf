@@ -13,6 +13,6 @@ namespace DelegationLibrary.DataAccess
         {
             _context = context;
         }
-        public IQueryable<IKilometersCard> KilometersCards => _context.KilometersCards;
+        public IEnumerable<IKilometersCard> KilometersCards => _context.KilometersCards;
     }
 }

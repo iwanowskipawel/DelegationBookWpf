@@ -1,10 +1,11 @@
 ﻿using DelegationLibrary.Model;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace DelegationLibrary.DataAccess
 {
     public interface IDriverRepository
     {
-        IQueryable<IDriver> Drivers { get; }
+        IEnumerable<IDriver> Drivers { get; }
     }
 }

@@ -6,6 +6,6 @@ namespace DelegationLibrary.DataAccess
 {
     public static class DataAccess
     {
-        public static DataCollection GetCollection(IDataLoader loader) => loader.LoadData();
+        public static IDataCollection GetCollection(IDataLoader loader) => loader.LoadData();
     }
 }

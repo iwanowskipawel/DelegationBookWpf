@@ -13,6 +13,6 @@ namespace DelegationLibrary.DataAccess
         {
             _context = context;
         }
-        public IQueryable<IDestination> Destinations => _context.Destinations;
+        public IEnumerable<IDestination> Destinations => _context.Destinations;
     }
 }

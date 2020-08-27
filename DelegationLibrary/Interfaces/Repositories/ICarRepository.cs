@@ -1,10 +1,11 @@
 ﻿using DelegationLibrary.Model;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace DelegationLibrary.DataAccess
 {
     public interface ICarRepository
     {
-        IQueryable<ICar> Cars { get; }
+        IEnumerable<ICar> Cars { get; }
     }
 }

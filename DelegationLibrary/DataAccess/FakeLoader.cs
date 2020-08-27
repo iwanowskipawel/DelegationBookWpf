@@ -9,7 +9,7 @@ namespace DelegationLibrary.DataAccess
     {
         public IDataCollection LoadData()
         {
-            Employee wieslaw = new Employee()
+            Driver wieslaw = new Driver()
             {
                 EmployeeID = 1,
                 FirstName = "Wiesław",
@@ -28,7 +28,7 @@ namespace DelegationLibrary.DataAccess
                 LastName = "Pietruszewski"
             };
 
-            DataCollection output = new DataCollection()
+            IDataCollection output = new DataCollection()
             {
                 KilometersCards = new List<KilometersCard>() {
                     new KilometersCard() {
@@ -37,7 +37,7 @@ namespace DelegationLibrary.DataAccess
                             CarID = 1,
                             Model = "Ford Transit",
                             RegistrationNumber = "WB 65788",
-                            MainDriver = (Driver)wieslaw,
+                            MainDriver = wieslaw,
                             MeterStatus = 354456
                         },
                         CardSymbol = "7/2020",
@@ -48,7 +48,7 @@ namespace DelegationLibrary.DataAccess
                                 BusinessTripID = 1,
                                 DepartureDate = new DateTime(2020, 7, 13),
                                 ArrivalDate = new DateTime(2020, 7, 15),
-                                Driver = (Driver)wieslaw,
+                                Driver = wieslaw,
                                 Destination = new Destination(){
                                     DestinationID = 1,
                                     Name = "Gdańsk"
@@ -65,7 +65,7 @@ namespace DelegationLibrary.DataAccess
                                 BusinessTripID = 2,
                                 DepartureDate = new DateTime(2020, 7, 16),
                                 ArrivalDate = new DateTime(2020, 7, 17),
-                                Driver = (Driver)wieslaw,
+                                Driver = wieslaw,
                                 Destination = new Destination(){
                                     DestinationID = 2,
                                     Name = "Kraków"

@@ -1,10 +1,11 @@
 ﻿using DelegationLibrary.Model;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace DelegationLibrary.DataAccess
 {
     public interface IDestinationRepository
     {
-        IQueryable<IDestination> Destinations { get; }
+        IEnumerable<IDestination> Destinations { get; }
     }
 }

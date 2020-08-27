@@ -13,6 +13,6 @@ namespace DelegationLibrary.DataAccess
         {
             _context = context;
         }
-        public IQueryable<IDriver> Drivers => _context.Drivers;
+        public IEnumerable<IDriver> Drivers => _context.Drivers;
     }
 }
