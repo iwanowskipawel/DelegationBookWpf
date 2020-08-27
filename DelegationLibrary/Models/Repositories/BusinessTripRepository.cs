@@ -6,13 +6,13 @@ using System.Text;
 
 namespace DelegationLibrary.DataAccess
 {
-    public class DestinationRepository
+    public class BusinessTripRepository : IBusinessTripRepository
     {
         private ApplicationDbContext _context;
-        public DestinationRepository(ApplicationDbContext context)
+        public BusinessTripRepository(ApplicationDbContext context)
         {
             _context = context;
         }
-        public IQueryable<IDestination> Destinations => _context.Destinations;
+        public IQueryable<IBusinessTrip> BusinessTrip => _context.BusinessTrips;
     }
 }

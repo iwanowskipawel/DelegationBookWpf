@@ -6,7 +6,7 @@ using System.Text;
 
 namespace DelegationLibrary.DataAccess
 {
-    public class ProjectRepository
+    public class ProjectRepository : IProjectRepository
     {
         private ApplicationDbContext _context;
         public ProjectRepository(ApplicationDbContext context)

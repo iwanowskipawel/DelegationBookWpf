@@ -6,13 +6,13 @@ using System.Text;
 
 namespace DelegationLibrary.DataAccess
 {
-    public class EmployeeRepository
+    public class DriverRepository : IDriverRepository
     {
         private ApplicationDbContext _context;
-        public EmployeeRepository(ApplicationDbContext context)
+        public DriverRepository(ApplicationDbContext context)
         {
             _context = context;
         }
-        public IQueryable<IEmployee> Employees => _context.Employees;
+        public IQueryable<IDriver> Drivers => _context.Drivers;
     }
 }
