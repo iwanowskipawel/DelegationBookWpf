@@ -45,7 +45,7 @@ namespace Delegation
             textBox.Text = "";
             foreach (var d in _dataCollection.KilometersCards)
             {
-                textBox.Text += $"{ d.CardSymbol } dla { d.Car.Model } { d.Car.RegistrationNumber }.\n\nLista wyjazdów:\n";
+                textBox.Text += $"{ d.CardSymbol } dla { d.Car }.\nKierowca: { d.Car.MainDriver }\n\nLista wyjazdów:\n";
                 foreach (var t in d.Trips)
                 {
                     textBox.Text += $"{ t.DepartureDate } - { t.ArrivalDate } do { t.Destination.Name } - ilość przejechanych km: { t.Distance }\n";
@@ -55,7 +55,7 @@ namespace Delegation
 
         private void DisplayFakeDataInDataGrid()
         {
-            dataGrid.ItemsSource = _dataCollection.KilometersCards.FirstOrDefault().Trips;
+            dataGrid.ItemsSource = _dataCollection.BusinessTrips;
         }
 
         private void textBox_TextChanged(object sender, TextChangedEventArgs e)
