@@ -58,24 +58,55 @@ namespace Delegation
 
         private void DisplayFakeDataInDataGrid()
         {
-            var tripInstance = _dataCollection.BusinessTrips.FirstOrDefault();
-            List<string> tripPropertiesNames = CollectAllDisplayNamesFrom(tripInstance);
-            ObservableCollection<IBusinessTrip> trips = new ObservableCollection<IBusinessTrip>(_dataCollection.BusinessTrips);
+            //var tripInstance = _dataCollection.BusinessTrips.FirstOrDefault();
+            //List<string> tripPropertiesNames = CollectAllDisplayNamesFrom(tripInstance);
+            //ObservableCollection<IBusinessTrip> trips = new ObservableCollection<IBusinessTrip>(_dataCollection.BusinessTrips);
 
 
-            tripPropertiesNames = RemoveIdProperty(tripPropertiesNames);
+            //tripPropertiesNames = RemoveIdProperty(tripPropertiesNames);
 
-            dataGrid.AutoGenerateColumns = false;
-            dataGrid.ItemsSource = trips;
+            //dataGrid.AutoGenerateColumns = false;
+            ////dataGrid.ItemsSource = trips;
 
-            foreach (var name in tripPropertiesNames)
-            {
-                DataGridTextColumn col = new DataGridTextColumn() { Header = name, Binding = new Binding(name) };
-                dataGrid.Columns.Add(col);
-            }
+            //foreach (var name in tripPropertiesNames)
+            //{
+            //    DataGridTextColumn col = new DataGridTextColumn() { Header = name, Binding = new Binding(name) };
+            //    dataGrid.Columns.Add(col);
+            //}
+            //foreach (var i in trips)
+            //{
+            //    dataGrid.Items.Add(i);
+            //}
 
+            
+                DataGridTextColumn c1 = new DataGridTextColumn();
+                c1.Header = "Num";
+                c1.Binding = new Binding(nameof(Item.Num));
+                c1.Width = 110;
+                dataGrid.Columns.Add(c1);
+                DataGridTextColumn c2 = new DataGridTextColumn();
+                c2.Header = "Start";
+                c2.Width = 110;
+                c2.Binding = new Binding("Start");
+                dataGrid.Columns.Add(c2);
+                DataGridTextColumn c3 = new DataGridTextColumn();
+                c3.Header = "Finich";
+                c3.Width = 110;
+                c3.Binding = new Binding("Finich");
+                dataGrid.Columns.Add(c3);
+
+                dataGrid.Items.Add(new Item() { Num = 1, Start = "2012, 8, 15", Finich = "2012, 9, 15" });
+                dataGrid.Items.Add(new Item() { Num = 2, Start = "2012, 12, 15", Finich = "2013, 2, 1" });
+                dataGrid.Items.Add(new Item() { Num = 3, Start = "2012, 8, 1", Finich = "2012, 11, 15" });
+
+            
         }
-
+        public class Item
+        {
+            public int Num { get; set; }
+            public string Start { get; set; }
+            public string Finich { get; set; }
+        }
         private List<string> RemoveIdProperty(List<string> names)
         {
             names.Remove(names.FirstOrDefault(n => n.ToLower().EndsWith("id")));
