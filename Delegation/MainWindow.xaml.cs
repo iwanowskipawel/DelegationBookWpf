@@ -59,18 +59,35 @@ namespace Delegation
         {
             var tripInstance = _dataCollection.BusinessTrips.FirstOrDefault();
 
-            var tripProperties = tripInstance.GetType().GetProperties();
-            List<string> tripPropertiesNames = new List<string>();
-
-            foreach(var p in tripProperties) { }
-
-            var destinationName = GetDisplayAttribute(tripInstance, nameof(Destination)).Name;
+            List<string> tripPropertiesNames = CollectAllDisplayNamesFrom(tripInstance);
 
             dataGrid.AutoGenerateColumns = false;
 
             dataGrid.ItemsSource = _dataCollection.BusinessTrips;
-            dataGrid.Columns.Add(new DataGridTextColumn() { Header = destinationName });
+            
+            dataGrid.Columns.Add(new DataGridTextColumn() { Header = tripPropertiesNames[1] });
 
+        }
+
+        private List<string> CollectAllDisplayNamesFrom(object instance)
+        {
+            List<string> output = new List<string>();
+
+            var tripProperties = instance.GetType().GetProperties();
+            foreach (var p in tripProperties)
+            {
+                var attr = GetDisplayAttribute(instance, p.Name);
+                if (attr == null)
+                {
+                    output.Add("");
+                }
+                else
+                {
+                    output.Add(attr.Name);
+                }
+            }
+
+            return output;
         }
 
         private DisplayAttribute GetDisplayAttribute(object instance, string name)
@@ -80,7 +97,7 @@ namespace Delegation
             var attributeType = typeof(DisplayAttribute);
             var prop = instance.GetType().GetProperty(name);
 
-            output = (DisplayAttribute)prop.GetCustomAttributes(attributeType, false).First();
+            output = (DisplayAttribute)prop.GetCustomAttributes(attributeType, false).FirstOrDefault();
             
             return output;
         }
