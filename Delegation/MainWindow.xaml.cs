@@ -56,6 +56,7 @@ namespace Delegation
         private void DisplayFakeDataInDataGrid()
         {
             dataGrid.ItemsSource = _dataCollection.BusinessTrips;
+            dataGrid.AutoGenerateColumns = false;
         }
 
         private void textBox_TextChanged(object sender, TextChangedEventArgs e)

@@ -13,13 +13,13 @@ namespace DelegationLibrary.Model
         [Display(Name = "Nr karty")]
         public string CardSymbol { get; set; }
 
-        [Display(Name = "Samochód")]
+        [Display(Name = "Samochód", AutoGenerateField = true)]
         public ICar Car { get; set; }
 
         [Display(Name = "Karta pracy pojazdu")]
         public string WorkCardNumber { get; set; }
 
-        [Display(Name = "Wyjazdy")]
+        [Display(Name = "Wyjazdy", AutoGenerateField = true)]
         public List<IBusinessTrip> Trips { get; set; }
 
         [Display(Name = "Przejechany dystans")]

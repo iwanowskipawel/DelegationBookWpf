@@ -18,13 +18,13 @@ namespace DelegationLibrary.Model
         [Display(Name = "Kierowca")]
         public IDriver Driver { get; set; }
 
-        [Display(Name = "Temat")]
+        [Display(Name = "Temat", AutoGenerateField = true)]
         public IProject Project { get; set; }
 
-        [Display(Name = "Dysponent")]
+        [Display(Name = "Dysponent", AutoGenerateField = true)]
         public IEmployee Keeper { get; set; }
 
-        [Display(Name = "Miejsce docelowe")]
+        [Display(Name = "Miejsce docelowe", AutoGenerateField = true)]
         public IDestination Destination { get; set; }
 
         [Display(Name = "Stan licznika początkowy")]
