@@ -55,7 +55,7 @@ namespace Delegation
 
         private void DisplayFakeDataInDataGrid()
         {
-            dataGrid.ItemsSource = _dataCollection.BusinessTrips;
+            dataGrid.ItemsSource = _dataCollection.KilometersCards.FirstOrDefault().Trips;
         }
 
         private void textBox_TextChanged(object sender, TextChangedEventArgs e)
