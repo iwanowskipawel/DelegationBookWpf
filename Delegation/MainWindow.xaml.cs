@@ -63,8 +63,8 @@ namespace Delegation
             tripPropertiesNames = RemoveIdProperty(tripPropertiesNames);
 
             dataGrid.AutoGenerateColumns = false;
-
             dataGrid.ItemsSource = _dataCollection.BusinessTrips;
+
             foreach (var name in tripPropertiesNames)
             {
                 dataGrid.Columns.Add(new DataGridTextColumn() { Header = name });
@@ -74,7 +74,7 @@ namespace Delegation
 
         private List<string> RemoveIdProperty(List<string> names)
         {
-            names.Remove(names.FirstOrDefault(n => n.ToLower().Contains("id")));
+            names.Remove(names.FirstOrDefault(n => n.ToLower().EndsWith("id")));
 
             return names;
         }
