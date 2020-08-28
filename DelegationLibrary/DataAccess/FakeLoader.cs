@@ -27,9 +27,52 @@ namespace DelegationLibrary.DataAccess
                 FirstName = "Paweł",
                 LastName = "Pietruszewski"
             };
+            BusinessTrip trip1 = new BusinessTrip()
+            {
+                BusinessTripID = 1,
+                DepartureDate = new DateTime(2020, 7, 13),
+                ArrivalDate = new DateTime(2020, 7, 15),
+                Driver = wieslaw,
+                Destination = new Destination()
+                {
+                    DestinationID = 1,
+                    Name = "Gdańsk"
+                },
+                InitialMeter = 353677,
+                FinalMeter = 354456,
+                Keeper = pawelI,
+                Project = new Project()
+                {
+                    ProjectID = 1,
+                    Symbol = "0-6541-24-1-00"
+                }
+            };
+            BusinessTrip trip2 = new BusinessTrip()
+            {
+                BusinessTripID = 2,
+                DepartureDate = new DateTime(2020, 7, 16),
+                ArrivalDate = new DateTime(2020, 7, 17),
+                Driver = wieslaw,
+                Destination = new Destination()
+                {
+                    DestinationID = 2,
+                    Name = "Kraków"
+                },
+                InitialMeter = 354456,
+                FinalMeter = 355273,
+                Keeper = pawelP,
+                Project = new Project()
+                {
+                    ProjectID = 1,
+                    Symbol = "0-6666-24-1-00"
+                }
+            };
 
             IDataCollection output = new DataCollection()
             {
+                Drivers = new List<Driver>() { wieslaw },
+                Employees = new List<Employee>() { pawelI, pawelP },
+                BusinessTrips = new List<BusinessTrip>() { trip1, trip2 },
                 KilometersCards = new List<KilometersCard>() {
                     new KilometersCard() {
                         KilometerCardID = 1,
@@ -42,43 +85,7 @@ namespace DelegationLibrary.DataAccess
                         },
                         CardSymbol = "7/2020",
                         WorkCardNumber = "456",
-                        Trips = new List<IBusinessTrip>()
-                        {
-                            new BusinessTrip() { 
-                                BusinessTripID = 1,
-                                DepartureDate = new DateTime(2020, 7, 13),
-                                ArrivalDate = new DateTime(2020, 7, 15),
-                                Driver = wieslaw,
-                                Destination = new Destination(){
-                                    DestinationID = 1,
-                                    Name = "Gdańsk"
-                                },
-                                InitialMeter = 353677,
-                                FinalMeter = 354456,
-                                Keeper = pawelI,
-                                Project = new Project(){
-                                    ProjectID = 1,
-                                    Symbol = "0-6541-24-1-00"
-                                }
-                            },
-                            new BusinessTrip() { 
-                                BusinessTripID = 2,
-                                DepartureDate = new DateTime(2020, 7, 16),
-                                ArrivalDate = new DateTime(2020, 7, 17),
-                                Driver = wieslaw,
-                                Destination = new Destination(){
-                                    DestinationID = 2,
-                                    Name = "Kraków"
-                                },
-                                InitialMeter = 354456,
-                                FinalMeter = 355273,
-                                Keeper = pawelP,
-                                Project = new Project(){
-                                    ProjectID = 1,
-                                    Symbol = "0-6666-24-1-00"
-                                }
-                            }
-                        }
+                        Trips = new List<IBusinessTrip>() { trip1, trip2 }
                     }
                 }
             };
