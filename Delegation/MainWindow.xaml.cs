@@ -3,6 +3,7 @@ using DelegationLibrary.Model;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.DirectoryServices.ActiveDirectory;
 using System.Linq;
@@ -59,15 +60,18 @@ namespace Delegation
         {
             var tripInstance = _dataCollection.BusinessTrips.FirstOrDefault();
             List<string> tripPropertiesNames = CollectAllDisplayNamesFrom(tripInstance);
+            ObservableCollection<IBusinessTrip> trips = new ObservableCollection<IBusinessTrip>(_dataCollection.BusinessTrips);
+
 
             tripPropertiesNames = RemoveIdProperty(tripPropertiesNames);
 
             dataGrid.AutoGenerateColumns = false;
-            dataGrid.ItemsSource = _dataCollection.BusinessTrips;
+            dataGrid.ItemsSource = trips;
 
             foreach (var name in tripPropertiesNames)
             {
-                dataGrid.Columns.Add(new DataGridTextColumn() { Header = name });
+                DataGridTextColumn col = new DataGridTextColumn() { Header = name, Binding = new Binding(name) };
+                dataGrid.Columns.Add(col);
             }
 
         }
@@ -108,7 +112,7 @@ namespace Delegation
             var prop = instance.GetType().GetProperty(name);
 
             output = (DisplayAttribute)prop.GetCustomAttributes(attributeType, false).FirstOrDefault();
-            
+
             return output;
         }
 
