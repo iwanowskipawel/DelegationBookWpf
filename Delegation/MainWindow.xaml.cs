@@ -1,7 +1,9 @@
 ﻿using DelegationLibrary.DataAccess;
+using DelegationLibrary.Model;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.DirectoryServices.ActiveDirectory;
 using System.Linq;
 using System.Text;
@@ -55,8 +57,32 @@ namespace Delegation
 
         private void DisplayFakeDataInDataGrid()
         {
-            dataGrid.ItemsSource = _dataCollection.BusinessTrips;
+            var tripInstance = _dataCollection.BusinessTrips.FirstOrDefault();
+
+            var tripProperties = tripInstance.GetType().GetProperties();
+            List<string> tripPropertiesNames = new List<string>();
+
+            foreach(var p in tripProperties) { }
+
+            var destinationName = GetDisplayAttribute(tripInstance, nameof(Destination)).Name;
+
             dataGrid.AutoGenerateColumns = false;
+
+            dataGrid.ItemsSource = _dataCollection.BusinessTrips;
+            dataGrid.Columns.Add(new DataGridTextColumn() { Header = destinationName });
+
+        }
+
+        private DisplayAttribute GetDisplayAttribute(object instance, string name)
+        {
+            DisplayAttribute output;
+
+            var attributeType = typeof(DisplayAttribute);
+            var prop = instance.GetType().GetProperty(name);
+
+            output = (DisplayAttribute)prop.GetCustomAttributes(attributeType, false).First();
+            
+            return output;
         }
 
         private void textBox_TextChanged(object sender, TextChangedEventArgs e)
