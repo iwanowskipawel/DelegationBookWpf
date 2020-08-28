@@ -7,6 +7,7 @@ namespace DelegationLibrary.Model
 {
     public class BusinessTrip : IBusinessTrip
     {
+        [Display(Name = "BusinessTripID")]
         public int BusinessTripID { get; set; }
 
         [Display(Name = "Wyjazd")]

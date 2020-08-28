@@ -7,6 +7,7 @@ namespace DelegationLibrary.Model
 {
     public class Destination : IDestination
     {
+        [Display(Name = "DestinationID")]
         public int DestinationID { get; set; }
 
         [Display(Name = "Nazwa")]

@@ -7,6 +7,7 @@ namespace DelegationLibrary.Model
 {
     public class Employee : Person, IEmployee
     {
+        [Display(Name = "EmployeeID")]
         public int EmployeeID { get; set; }
 
         [Display(Name = "Wyjazdy")]

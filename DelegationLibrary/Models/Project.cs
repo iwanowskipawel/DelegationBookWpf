@@ -7,6 +7,7 @@ namespace DelegationLibrary.Model
 {
     public class Project : IProject
     {
+        [Display(Name = "ProjectID")]
         public int ProjectID { get; set; }
 
         [Display(Name = "Symbol")]

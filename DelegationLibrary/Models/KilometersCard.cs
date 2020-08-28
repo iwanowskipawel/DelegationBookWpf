@@ -8,6 +8,7 @@ namespace DelegationLibrary.Model
 {
     public class KilometersCard : IKilometersCard
     {
+        [Display(Name = "KilometerCardID")]
         public int KilometerCardID { get; set; }
 
         [Display(Name = "Nr karty")]

@@ -7,6 +7,7 @@ namespace DelegationLibrary.Model
 {
     public class Car : ICar
     {
+        [Display(Name = "CarID")]
         public int CarID { get; set; }
 
         [Display(Name = "Model")]

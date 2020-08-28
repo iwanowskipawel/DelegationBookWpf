@@ -7,6 +7,7 @@ namespace DelegationLibrary.Model
 {
     public class Address : IAddress
     {
+        [Display(Name = "AddressID")]
         public int AddressID { get; set; }
 
         [Display(Name = "Ulica")]

@@ -8,6 +8,7 @@ namespace DelegationLibrary.Model
 {
     public class Company : ICompany
     {
+        [Display(Name = "CompanyID")]
         public int CompanyID { get; set; }
 
         [Display(Name = "Nazwa")]

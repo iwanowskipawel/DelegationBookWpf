@@ -7,6 +7,7 @@ namespace DelegationLibrary.Model
 {
     public class Driver : Employee, IDriver
     {
+        [Display(Name = "DriverID")]
         public int DriverID { get; set; }
 
         [Display(Name = "Użytkowane samochody")]

@@ -58,15 +58,25 @@ namespace Delegation
         private void DisplayFakeDataInDataGrid()
         {
             var tripInstance = _dataCollection.BusinessTrips.FirstOrDefault();
-
             List<string> tripPropertiesNames = CollectAllDisplayNamesFrom(tripInstance);
+
+            tripPropertiesNames = RemoveIdProperty(tripPropertiesNames);
 
             dataGrid.AutoGenerateColumns = false;
 
             dataGrid.ItemsSource = _dataCollection.BusinessTrips;
-            
-            dataGrid.Columns.Add(new DataGridTextColumn() { Header = tripPropertiesNames[1] });
+            foreach (var name in tripPropertiesNames)
+            {
+                dataGrid.Columns.Add(new DataGridTextColumn() { Header = name });
+            }
 
+        }
+
+        private List<string> RemoveIdProperty(List<string> names)
+        {
+            names.Remove(names.FirstOrDefault(n => n.ToLower().Contains("id")));
+
+            return names;
         }
 
         private List<string> CollectAllDisplayNamesFrom(object instance)

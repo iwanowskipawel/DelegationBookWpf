@@ -7,6 +7,7 @@ namespace DelegationLibrary.Model
 {
     public abstract class Person
     {
+        [Display(Name = "PersonID")]
         public int PersonID { get; set; }
 
         [Display(Name = "Imię")]
