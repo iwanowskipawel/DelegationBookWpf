@@ -34,6 +34,7 @@ namespace Delegation
 
             InitializeComponent();
             KilometersCard_ComboBox.ItemsSource = _dataCollection.KilometersCards;
+            KilometersCard_ComboBox.SelectedItem = _dataCollection.KilometersCards.FirstOrDefault();
         }
 
         private void SetupApplication()
@@ -49,11 +50,12 @@ namespace Delegation
 
         private void KilometerCard_Button_Click(object sender, RoutedEventArgs e)
         {
-            DisplayKilometerCard(2);
+            var selectedCard = KilometersCard_ComboBox.SelectedItem;
+            DisplayKilometerCard(selectedCard.ToString());
         }
-        private void DisplayKilometerCard(int cardID)
+        private void DisplayKilometerCard(string cardSymbol)
         {
-            var card = _dataCollection.KilometersCards.FirstOrDefault(k => k.KilometerCardID == cardID);
+            var card = _dataCollection.KilometersCards.FirstOrDefault(k => k.CardSymbol == cardSymbol);
             DisplayKilometerCardSummaryInTextBox(card);
 
             var businessTrips = new ObservableCollection<BusinessTripViewModel>();
