@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DataAccessLibrary\DataAccessLibrary.csproj" />
     <ProjectReference Include="..\DelegationLibrary\DelegationLibrary.csproj" />
   </ItemGroup>
 

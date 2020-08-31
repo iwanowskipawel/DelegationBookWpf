@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delegation", "Delegation\Delegation.csproj", "{AC53C1F5-75AD-422D-AFBE-4619C7BED80B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delegation", "Delegation\Delegation.csproj", "{AC53C1F5-75AD-422D-AFBE-4619C7BED80B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DelegationLibrary", "DelegationLibrary\DelegationLibrary.csproj", "{48AF0262-EDE8-4600-95D0-98D51A365504}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DelegationLibrary", "DelegationLibrary\DelegationLibrary.csproj", "{48AF0262-EDE8-4600-95D0-98D51A365504}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLibrary", "DataAccessLibrary\DataAccessLibrary.csproj", "{F1850B53-2C04-45FE-8621-AC61F864A6EB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{48AF0262-EDE8-4600-95D0-98D51A365504}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{48AF0262-EDE8-4600-95D0-98D51A365504}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{48AF0262-EDE8-4600-95D0-98D51A365504}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1850B53-2C04-45FE-8621-AC61F864A6EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1850B53-2C04-45FE-8621-AC61F864A6EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1850B53-2C04-45FE-8621-AC61F864A6EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1850B53-2C04-45FE-8621-AC61F864A6EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
