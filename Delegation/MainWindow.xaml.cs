@@ -50,9 +50,9 @@ namespace Delegation
 
         private void KilometerCard_Button_Click(object sender, RoutedEventArgs e)
         {
-            var selectedCard = KilometersCard_ComboBox.SelectedItem;
-            DisplayKilometerCard(selectedCard.ToString());
+            KilometersCard_Grid.Visibility = Visibility.Visible;
         }
+
         private void DisplayKilometerCard(string cardSymbol)
         {
             var card = _dataCollection.KilometersCards.FirstOrDefault(k => k.CardSymbol == cardSymbol);
@@ -76,6 +76,12 @@ namespace Delegation
         }
 
         private void KilometersCard_ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedCard = KilometersCard_ComboBox.SelectedItem;
+            DisplayKilometerCard(selectedCard.ToString());
+        }
+
+        private void AddKilometerCard_Button_Click(object sender, RoutedEventArgs e)
         {
 
         }
