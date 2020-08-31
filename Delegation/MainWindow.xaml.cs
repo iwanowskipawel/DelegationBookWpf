@@ -1,4 +1,5 @@
-﻿using Delegation.ViewModels;
+﻿using DataAccessLibrary.DataAccess;
+using Delegation.ViewModels;
 using DelegationLibrary.DataAccess;
 using DelegationLibrary.Model;
 using Microsoft.EntityFrameworkCore;
@@ -33,6 +34,8 @@ namespace Delegation
             InitializeComponent();
             SetupApplication();
 
+            XmlLoader loader = new XmlLoader("C:\\Delegacje.txt");
+            loader.SaveData(_dataCollection);
         }
 
         private void SetupApplication()
