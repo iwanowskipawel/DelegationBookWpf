@@ -12,16 +12,15 @@ namespace Delegation
 {
     public static class GridDisplayExtender
     {
-        public static void DisplayInGrid(this IEnumerable<IBusinessTrip> trips, DataGrid dataGrid)
+        public static void DisplayInGrid(this BusinessTripsListViewModel dataModel, DataGrid dataGrid)
         {
             dataGrid.Columns.Clear();
             dataGrid.AutoGenerateColumns = false;
 
-            var defaultTrip = trips.FirstOrDefault();
+            var defaultTrip = dataModel.Trips.FirstOrDefault();
             var tripProperties = defaultTrip.GetType().GetProperties();
 
-            BusinessTripsListViewModel model = new BusinessTripsListViewModel(trips);
-            dataGrid.ItemsSource = model.Trips;
+            dataGrid.ItemsSource = dataModel.Trips;
 
             foreach (var property in tripProperties)
             {

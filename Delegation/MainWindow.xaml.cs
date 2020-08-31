@@ -1,4 +1,5 @@
-﻿using DelegationLibrary.DataAccess;
+﻿using Delegation.ViewModels;
+using DelegationLibrary.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.DirectoryServices.ActiveDirectory;
@@ -30,7 +31,8 @@ namespace Delegation
 
             DisplayFakeDataInTextBox();
 
-            _dataCollection.BusinessTrips.DisplayInGrid(dataGrid);
+            var businessTrips = new BusinessTripsListViewModel(_dataCollection.BusinessTrips);
+            businessTrips.DisplayInGrid(dataGrid);
         }
 
         private void SetupApplication()
