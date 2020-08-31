@@ -3,6 +3,7 @@ using DelegationLibrary.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Controls;
@@ -12,22 +13,22 @@ namespace Delegation
 {
     public static class GridDisplayExtender
     {
-        public static void DisplayInGrid(this BusinessTripsListViewModel dataModel, DataGrid dataGrid)
+        public static void DisplayBusinessTrips(this ObservableCollection<BusinessTripViewModel> dataModel, DataGrid dataGrid)
         {
             dataGrid.Columns.Clear();
             dataGrid.AutoGenerateColumns = false;
 
-            var defaultTrip = dataModel.Trips.FirstOrDefault();
+            var defaultTrip = dataModel.FirstOrDefault();
             var tripProperties = defaultTrip.GetType().GetProperties();
 
-            dataGrid.ItemsSource = dataModel.Trips;
+            dataGrid.ItemsSource = dataModel;
 
             foreach (var property in tripProperties)
             {
                 DataGridTextColumn col = new DataGridTextColumn()
                 {
                     Header = AttributeImporter.GetDisplayName(defaultTrip, property),
-                    Binding = new Binding(property.Name) { Mode = BindingMode.OneWay }
+                    Binding = new Binding(property.Name) { Mode = BindingMode.OneWay }, Width = DataGridLength.Auto            
                 };
                 dataGrid.Columns.Add(col);
             }

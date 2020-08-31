@@ -23,40 +23,43 @@ namespace Delegation
     public partial class MainWindow : Window
     {
         IDataCollection _dataCollection;
+        ListViewModel _viewModel;
+
         public MainWindow()
         {
             SetupApplication();
 
             InitializeComponent();
-
-            DisplayFakeDataInTextBox();
-
-            var businessTrips = new BusinessTripsListViewModel(_dataCollection.BusinessTrips);
-            businessTrips.DisplayInGrid(dataGrid);
         }
 
         private void SetupApplication()
         {
             IDataLoader dataLoader = new FakeLoader();
             _dataCollection = DataAccess.GetCollection(dataLoader);
+
+            _viewModel = new ListViewModel(_dataCollection);
         }
 
-        private void DisplayFakeDataInTextBox()
+        private void DisplayKilometerCardSummaryInTextBox()
         {
             textBox.Text = "";
             foreach (var d in _dataCollection.KilometersCards)
             {
                 textBox.Text += $"{ d.CardSymbol } dla { d.Car }.\nKierowca: { d.Car.MainDriver }\n\nLista wyjazdów:\n";
-                foreach (var t in d.Trips)
-                {
-                    textBox.Text += $"{ t.DepartureDate } - { t.ArrivalDate } do { t.Destination.Name } - ilość przejechanych km: { t.Distance }\n";
-                }
             }
         }
 
         private void textBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
+        }
+
+        private void KilometerCard_Button_Click(object sender, RoutedEventArgs e)
+        {
+            DisplayKilometerCardSummaryInTextBox();
+
+            var businessTrips = _viewModel.BusinessTrips;
+            businessTrips.DisplayBusinessTrips(dataGrid);
         }
     }
 }

@@ -14,7 +14,7 @@ namespace Delegation.ViewModels
             _trip = trip;
         }
 
-        [Display(Name = "BusinessTripID")]
+        [Display(Name = "ID")]
         public int BusinessTripID => _trip.BusinessTripID;
 
         [Display(Name = "Wyjazd")]
