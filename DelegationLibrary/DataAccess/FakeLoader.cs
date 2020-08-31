@@ -113,10 +113,10 @@ namespace DelegationLibrary.DataAccess
                             Model = "Ford Transit",
                             RegistrationNumber = "WB 65788",
                             MainDriver = wieslaw,
-                            MeterStatus = 355273
+                            MeterStatus = 355578
                         },
-                        CardSymbol = "7/2020",
-                        WorkCardNumber = "456",
+                        CardSymbol = "8/2020",
+                        WorkCardNumber = "457",
                         Trips = new List<IBusinessTrip>() { trip3 }
                     }
                 }
