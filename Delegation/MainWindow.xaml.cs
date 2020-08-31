@@ -49,7 +49,11 @@ namespace Delegation
 
         private void KilometerCard_Button_Click(object sender, RoutedEventArgs e)
         {
-            var card = _dataCollection.KilometersCards.FirstOrDefault();
+            DisplayKilometerCard(1);
+        }
+        private void DisplayKilometerCard(int cardID)
+        {
+            var card = _dataCollection.KilometersCards.FirstOrDefault(k => k.KilometerCardID == cardID);
             DisplayKilometerCardSummaryInTextBox(card);
 
             var businessTrips = new ObservableCollection<BusinessTripViewModel>();
