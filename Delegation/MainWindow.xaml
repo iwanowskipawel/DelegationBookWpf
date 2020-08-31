@@ -7,13 +7,16 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TextBox Name="textBox" HorizontalAlignment="Center" Margin="0,52,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="716" Height="41" TextChanged="textBox_TextChanged"/>
-        <DataGrid Name="dataGrid" Margin="0,98,0,0" VerticalAlignment="Top" RowHeight="30" ColumnWidth="100" Height="326">
-        </DataGrid>
         <Button HorizontalAlignment="Left" Height="37" Margin="10,10,0,0" 
                 VerticalAlignment="Top" Width="74" Click="KilometerCard_Button_Click" Name="KilometerCard_Button">
             <TextBlock TextWrapping="Wrap" TextAlignment="Center">Karta Kilometrów</TextBlock>
         </Button>
-
+        <Grid>
+            <TextBox Name="textBox" HorizontalAlignment="Left" Margin="186,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="604" Height="73" TextChanged="textBox_TextChanged"/>
+            <DataGrid Name="dataGrid" Margin="0,130,0,0" VerticalAlignment="Top" RowHeight="30" ColumnWidth="100" Height="294">
+            </DataGrid>
+            <ComboBox Name="KilometersCard_ComboBox" HorizontalAlignment="Left" Height="41" Margin="5,84,0,0" VerticalAlignment="Top" Width="176" SelectionChanged="KilometersCard_ComboBox_SelectionChanged"/>
+            <Label Content="Wybrana karta:" HorizontalAlignment="Left" Height="29" Margin="5,55,0,0" VerticalAlignment="Top" Width="134"/>
+        </Grid>
     </Grid>
 </Window>

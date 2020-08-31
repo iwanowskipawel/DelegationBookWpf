@@ -1,8 +1,12 @@
 ﻿using Delegation.ViewModels;
 using DelegationLibrary.DataAccess;
+using DelegationLibrary.Model;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.DirectoryServices.ActiveDirectory;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,15 +44,6 @@ namespace Delegation
             _viewModel = new ListViewModel(_dataCollection);
         }
 
-        private void DisplayKilometerCardSummaryInTextBox()
-        {
-            textBox.Text = "";
-            foreach (var d in _dataCollection.KilometersCards)
-            {
-                textBox.Text += $"{ d.CardSymbol } dla { d.Car }.\nKierowca: { d.Car.MainDriver }\n\nLista wyjazdów:\n";
-            }
-        }
-
         private void textBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
@@ -56,10 +51,29 @@ namespace Delegation
 
         private void KilometerCard_Button_Click(object sender, RoutedEventArgs e)
         {
-            DisplayKilometerCardSummaryInTextBox();
+            var card = _dataCollection.KilometersCards.FirstOrDefault();
+            DisplayKilometerCardSummaryInTextBox(card);
 
-            var businessTrips = _viewModel.BusinessTrips;
+            var businessTrips = new ObservableCollection<BusinessTripViewModel>();
+            foreach (var trip in card.Trips)
+            {
+                businessTrips.Add(new BusinessTripViewModel(trip));
+            }
+
             businessTrips.DisplayBusinessTrips(dataGrid);
+        }
+
+        private void DisplayKilometerCardSummaryInTextBox(IKilometersCard card)
+        {
+            textBox.Text = "";
+            var d = card;
+            textBox.Text += $"{ d.CardSymbol } dla { d.Car }.\nKierowca: { d.Car.MainDriver }";
+
+        }
+
+        private void KilometersCard_ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

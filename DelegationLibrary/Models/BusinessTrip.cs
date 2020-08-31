@@ -36,5 +36,7 @@ namespace DelegationLibrary.Model
 
         [Display(Name = "Liczba przejechanych km")]
         public int Distance => FinalMeter - InitialMeter;
+
+        public IKilometersCard KilometersCard { get; set; }
     }
 }

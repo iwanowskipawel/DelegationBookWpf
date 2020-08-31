@@ -14,5 +14,6 @@ namespace DelegationLibrary.Model
         int InitialMeter { get; set; }
         IEmployee Keeper { get; set; }
         IProject Project { get; set; }
+        IKilometersCard KilometersCard { get; set; }
     }
 }
