@@ -30,22 +30,22 @@ namespace Delegation
 
         public MainWindow()
         {
+            InitializeComponent();
             SetupApplication();
 
-            InitializeComponent();
-            KilometersCard_ComboBox.ItemsSource = _dataCollection.KilometersCards;
-            KilometersCard_ComboBox.SelectedItem = _dataCollection.KilometersCards.FirstOrDefault();
         }
 
         private void SetupApplication()
         {
             IDataLoader dataLoader = new FakeLoader();
             _dataCollection = DataAccess.GetCollection(dataLoader);
+
+            KilometersCard_ComboBox.ItemsSource = _dataCollection.KilometersCards;
+            KilometersCard_ComboBox.SelectedItem = _dataCollection.KilometersCards.FirstOrDefault();
         }
 
         private void textBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-
         }
 
         private void KilometerCard_Button_Click(object sender, RoutedEventArgs e)

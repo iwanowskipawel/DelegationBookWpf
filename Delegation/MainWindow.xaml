@@ -5,19 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Delegation"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="982">
+
+
     <Grid>
-        <Button HorizontalAlignment="Left" Height="37" Margin="10,10,0,0" 
+        <!--<Button  HorizontalAlignment="Left" Height="37" Margin="10,10,0,0" 
                 VerticalAlignment="Top" Width="74" Click="KilometerCard_Button_Click" Name="KilometerCard_Button">
             <TextBlock TextWrapping="Wrap" TextAlignment="Center">Karta Kilometrów</TextBlock>
-        </Button>
-        <Grid Name="KilometersCard_Grid" Visibility="Visible">
-            <TextBox Name="textBox" HorizontalAlignment="Left" Margin="186,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="604" Height="73" TextChanged="textBox_TextChanged"/>
-            <DataGrid Name="dataGrid" Margin="0,130,0,0" VerticalAlignment="Top" RowHeight="30" ColumnWidth="100" Height="294">
-            </DataGrid>
-            <ComboBox Name="KilometersCard_ComboBox" HorizontalAlignment="Left" Height="24" Margin="5,101,0,0" VerticalAlignment="Top" Width="123" SelectionChanged="KilometersCard_ComboBox_SelectionChanged"/>
-            <Label Content="Wybrana karta:" HorizontalAlignment="Left" Height="29" Margin="5,74,0,0" VerticalAlignment="Top" Width="134"/>
-            <Button Name="AddKilometerCard_Button" Content="+" HorizontalAlignment="Left" Height="24" Margin="139,101,0,0" VerticalAlignment="Top" Width="32" Click="AddKilometerCard_Button_Click"/>
-        </Grid>
+        </Button>-->
+
+        <TabControl x:Name="tabs">
+            <TabItem Name="KilometersCards" Header="Karty Kilometrów">
+                <Grid Name="KilometersCard_Grid" Visibility="Visible">
+                    <TextBox Name="textBox" HorizontalAlignment="Left" Margin="180,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="786" Height="52" TextChanged="textBox_TextChanged"/>
+                    <DataGrid Name="dataGrid" Margin="0,68,0,0" VerticalAlignment="Top" RowHeight="30" ColumnWidth="100" Height="356" AutoGenerateColumns="False" CanUserReorderColumns="False">
+                    </DataGrid>
+                    <ComboBox Name="KilometersCard_ComboBox" HorizontalAlignment="Left" Height="24" Margin="16,39,0,0" VerticalAlignment="Top" Width="122" SelectionChanged="KilometersCard_ComboBox_SelectionChanged"/>
+                    <Label Content="Wybrana karta:" HorizontalAlignment="Left" Height="29" Margin="10,10,0,0" VerticalAlignment="Top" Width="134"/>
+                    <Button Name="AddKilometerCard_Button" Content="+" HorizontalAlignment="Left" Height="24" Margin="143,38,0,0" VerticalAlignment="Top" Width="32" Click="AddKilometerCard_Button_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Wyjazdy">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+        </TabControl>
+
     </Grid>
 </Window>
