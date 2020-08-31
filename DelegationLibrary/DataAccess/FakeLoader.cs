@@ -72,6 +72,7 @@ namespace DelegationLibrary.DataAccess
                 BusinessTripID = 3,
                 DepartureDate = new DateTime(2020, 7, 22),
                 ArrivalDate = new DateTime(2020, 7, 25),
+                Driver = wieslaw,
                 Destination = new Destination()
                 {
                     DestinationID = 2,
@@ -86,6 +87,14 @@ namespace DelegationLibrary.DataAccess
                     Symbol = "0-6666-24-1-00"
                 }
             };
+            ICar car = new Car()
+            {
+                CarID = 1,
+                Model = "Ford Transit",
+                RegistrationNumber = "WB 65788",
+                MainDriver = wieslaw,
+                MeterStatus = 354456
+            };
 
             IDataCollection output = new DataCollection()
             {
@@ -95,26 +104,14 @@ namespace DelegationLibrary.DataAccess
                 KilometersCards = new List<KilometersCard>() {
                     new KilometersCard() {
                         KilometerCardID = 1,
-                        Car = new Car() {
-                            CarID = 1,
-                            Model = "Ford Transit",
-                            RegistrationNumber = "WB 65788",
-                            MainDriver = wieslaw,
-                            MeterStatus = 354456
-                        },
+                        Car = car,
                         CardSymbol = "7/2020",
                         WorkCardNumber = "456",
                         Trips = new List<IBusinessTrip>() { trip1, trip2 }
                     },
                     new KilometersCard() {
                         KilometerCardID = 2,
-                        Car = new Car() {
-                            CarID = 1,
-                            Model = "Ford Transit",
-                            RegistrationNumber = "WB 65788",
-                            MainDriver = wieslaw,
-                            MeterStatus = 355578
-                        },
+                        Car = car,
                         CardSymbol = "8/2020",
                         WorkCardNumber = "457",
                         Trips = new List<IBusinessTrip>() { trip3 }

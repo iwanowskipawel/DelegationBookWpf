@@ -49,7 +49,7 @@ namespace Delegation
 
         private void KilometerCard_Button_Click(object sender, RoutedEventArgs e)
         {
-            DisplayKilometerCard(1);
+            DisplayKilometerCard(2);
         }
         private void DisplayKilometerCard(int cardID)
         {
