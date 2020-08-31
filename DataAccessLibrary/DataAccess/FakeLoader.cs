@@ -100,7 +100,7 @@ namespace DelegationLibrary.DataAccess
             {
                 Drivers = new List<Driver>() { wieslaw },
                 Employees = new List<Employee>() { pawelI, pawelP },
-                BusinessTrips = new List<BusinessTrip>() { trip1, trip2 },
+                BusinessTrips = new List<BusinessTrip>() { trip1, trip2, trip3 },
                 Projects = new List<Project>() { project1, project2 },
                 KilometersCards = new List<KilometersCard>() {
                     new KilometersCard() {
