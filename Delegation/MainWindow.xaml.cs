@@ -48,11 +48,6 @@ namespace Delegation
         {
         }
 
-        private void KilometerCard_Button_Click(object sender, RoutedEventArgs e)
-        {
-            KilometersCard_Grid.Visibility = Visibility.Visible;
-        }
-
         private void DisplayKilometerCard(string cardSymbol)
         {
             var card = _dataCollection.KilometersCards.FirstOrDefault(k => k.CardSymbol == cardSymbol);
