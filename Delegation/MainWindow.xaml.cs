@@ -34,7 +34,7 @@ namespace Delegation
             InitializeComponent();
             SetupApplication();
 
-            XmlLoader loader = new XmlLoader("D:\\Delegacje.txt");
+            //XmlLoader loader = new XmlLoader("D:\\Delegacje.txt");
             //loader.SaveData(_dataCollection);
         }
 
@@ -51,28 +51,23 @@ namespace Delegation
             projects_ComboBox.SelectedItem = _dataCollection.Projects.FirstOrDefault();
         }
 
-        private void textBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-        }
-
         private void DisplayKilometerCard(string cardSymbol)
         {
             var card = _dataCollection.KilometersCards.FirstOrDefault(k => k.CardSymbol == cardSymbol);
+            var trips = card.Trips;
             DisplayKilometerCardSummaryInTextBox(card);
-
-            var businessTrips = new ObservableCollection<BusinessTripViewModel>();
-            foreach (var trip in card.Trips)
-            {
-                businessTrips.Add(new BusinessTripViewModel(trip));
-            }
-
-            businessTrips.DisplayBusinessTrips(dataGrid);
+            trips.DisplayBusinessTrips(dataGrid);
         }
 
-        private void DisplayKilometerCardSummaryInTextBox(IKilometersCard card)
+        private void DisplayProject(string symbol)
         {
-            textBox.Text = "";
-            textBox.Text += $"{ card.CardSymbol } dla { card.Car }.\nKierowca: { card.Car.MainDriver }";
+            var project = _dataCollection.Projects.FirstOrDefault(k => k.Symbol == symbol);
+            DisplayProjectSummaryInTextBox(project);
+
+            IEnumerable<IBusinessTrip> trips = _dataCollection.BusinessTrips
+                .Where(t => t.Project.ProjectID == project.ProjectID);
+
+            trips.DisplayBusinessTrips(projects_dataGrid);
         }
 
         private void KilometersCard_ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -81,37 +76,30 @@ namespace Delegation
             DisplayKilometerCard(selectedCard.ToString());
         }
 
-        private void AddKilometerCard_Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void Project_ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var selectedProject = projects_ComboBox.SelectedItem;
             DisplayProject(selectedProject.ToString());
         }
 
-        private void DisplayProject(string symbol)
+        private void DisplayKilometerCardSummaryInTextBox(IKilometersCard card)
         {
-            var project = _dataCollection.Projects.FirstOrDefault(k => k.Symbol == symbol);
-            DisplayProjectSummaryInTextBox(project);
-
-            IEnumerable<IBusinessTrip> trips = _dataCollection.BusinessTrips.Where(t => t.Project.ProjectID == project.ProjectID);
-
-            var businessTrips = new ObservableCollection<BusinessTripViewModel>();
-            foreach (var trip in trips)
-            {
-                businessTrips.Add(new BusinessTripViewModel(trip));
-            }
-
-            businessTrips.DisplayBusinessTrips(projects_dataGrid);
+            textBox.Text = "";
+            textBox.Text += $"{ card.CardSymbol } dla { card.Car }.\nKierowca: { card.Car.MainDriver }";
         }
 
         private void DisplayProjectSummaryInTextBox(IProject project)
         {
             projects_textBox.Text = "";
             projects_textBox.Text += $"{ project.Symbol } dla { project.Company }.\nTytuł: { project.Title }";
+        }
+
+        private void textBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+        }
+
+        private void AddKilometerCard_Button_Click(object sender, RoutedEventArgs e)
+        {
         }
     }
 }
