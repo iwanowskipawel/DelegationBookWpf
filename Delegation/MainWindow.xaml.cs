@@ -27,7 +27,6 @@ namespace Delegation
     public partial class MainWindow : Window
     {
         IDataCollection _dataCollection;
-        ListViewModel _viewModel;
 
         public MainWindow()
         {
@@ -40,8 +39,6 @@ namespace Delegation
         {
             IDataLoader dataLoader = new FakeLoader();
             _dataCollection = DataAccess.GetCollection(dataLoader);
-
-            _viewModel = new ListViewModel(_dataCollection);
         }
 
         private void textBox_TextChanged(object sender, TextChangedEventArgs e)

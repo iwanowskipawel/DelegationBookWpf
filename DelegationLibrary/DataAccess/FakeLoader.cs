@@ -63,7 +63,26 @@ namespace DelegationLibrary.DataAccess
                 Keeper = pawelP,
                 Project = new Project()
                 {
-                    ProjectID = 1,
+                    ProjectID = 2,
+                    Symbol = "0-6666-24-1-00"
+                }
+            };
+            BusinessTrip trip3 = new BusinessTrip()
+            {
+                BusinessTripID = 3,
+                DepartureDate = new DateTime(2020, 7, 22),
+                ArrivalDate = new DateTime(2020, 7, 25),
+                Destination = new Destination()
+                {
+                    DestinationID = 2,
+                    Name = "Leźnica"
+                },
+                InitialMeter = 355273,
+                FinalMeter = 355578,
+                Keeper = pawelP,
+                Project = new Project()
+                {
+                    ProjectID = 2,
                     Symbol = "0-6666-24-1-00"
                 }
             };
@@ -86,6 +105,19 @@ namespace DelegationLibrary.DataAccess
                         CardSymbol = "7/2020",
                         WorkCardNumber = "456",
                         Trips = new List<IBusinessTrip>() { trip1, trip2 }
+                    },
+                    new KilometersCard() {
+                        KilometerCardID = 2,
+                        Car = new Car() {
+                            CarID = 1,
+                            Model = "Ford Transit",
+                            RegistrationNumber = "WB 65788",
+                            MainDriver = wieslaw,
+                            MeterStatus = 355273
+                        },
+                        CardSymbol = "7/2020",
+                        WorkCardNumber = "456",
+                        Trips = new List<IBusinessTrip>() { trip3 }
                     }
                 }
             };
