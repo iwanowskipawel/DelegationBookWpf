@@ -1,4 +1,5 @@
 ﻿using DelegationLibrary.DataAccess;
+using DelegationLibrary.Model;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -20,26 +21,30 @@ namespace DataAccessLibrary.DataAccess
 
         public IDataCollection LoadData()
         {
-            IDataCollection output = new DataCollection();
+            DataCollection output = new DataCollection();
 
-
+            XmlSerializer serializer = new XmlSerializer(typeof(DataCollection));
+            using (FileStream fileStream = new FileStream(_path, FileMode.OpenOrCreate, FileAccess.ReadWrite))
+            {
+                StreamReader reader = new StreamReader(fileStream);
+                output = (DataCollection)serializer.Deserialize(reader);
+            }
             return output;
         }
 
-        public bool SaveData(DataCollection collection)
+        public bool SaveData(IDataCollection collection)
         {
-            XmlSerializer xsSubmit = new XmlSerializer(typeof(DataCollection));
-            FileStream fileStream = new FileStream(_path, FileMode.OpenOrCreate);
+            XmlSerializer xsSubmit = new XmlSerializer(typeof(KilometersCard));
+            FileStream fileStream = new FileStream(_path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
             StreamWriter streamWriter = new StreamWriter(fileStream);
 
-            var xml = "";
 
             using (var sww = new StringWriter())
             {
                 using (XmlWriter writer = XmlWriter.Create(sww))
                 {
                     xsSubmit.Serialize(writer, collection);
-                    xml = sww.ToString();
+                    var xml = sww.ToString();
                     streamWriter.Write(xml);
                     fileStream.Close();
                 }

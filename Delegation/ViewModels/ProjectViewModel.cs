@@ -1,13 +1,14 @@
-﻿using System;
+﻿using DelegationLibrary.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace DelegationLibrary.Model
+namespace Delegation.ViewModels
 {
-    public class Project : IProject
+    public class ProjectViewModel
     {
-        [Display(Name = "ProjectID")]
+        [Display(Name = "ID")]
         public int ProjectID { get; set; }
 
         [Display(Name = "Symbol")]
@@ -19,9 +20,7 @@ namespace DelegationLibrary.Model
         [Display(Name = "Tytuł")]
         public string Title { get; set; }
 
-        [Display(Name = "Wyjazdy")]
-        public List<IBusinessTrip> Trips { get; set; }
-
-        public override string ToString() => Symbol;
+        //[Display(Name = "Wyjazdy")]
+        //public List<IBusinessTrip> Trips { get; set; }
     }
 }

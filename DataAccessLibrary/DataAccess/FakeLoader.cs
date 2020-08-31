@@ -27,6 +27,18 @@ namespace DelegationLibrary.DataAccess
                 FirstName = "Paweł",
                 LastName = "Pietruszewski"
             };
+
+            Project project1 = new Project()
+            {
+                ProjectID = 1,
+                Symbol = "0-6541-24-1-00"
+            };
+            Project project2 = new Project()
+            {
+                ProjectID = 2,
+                Symbol = "0-6666-24-1-00"
+            };
+            
             BusinessTrip trip1 = new BusinessTrip()
             {
                 BusinessTripID = 1,
@@ -41,11 +53,7 @@ namespace DelegationLibrary.DataAccess
                 InitialMeter = 353677,
                 FinalMeter = 354456,
                 Keeper = pawelI,
-                Project = new Project()
-                {
-                    ProjectID = 1,
-                    Symbol = "0-6541-24-1-00"
-                }
+                Project = project1
             };
             BusinessTrip trip2 = new BusinessTrip()
             {
@@ -61,11 +69,7 @@ namespace DelegationLibrary.DataAccess
                 InitialMeter = 354456,
                 FinalMeter = 355273,
                 Keeper = pawelP,
-                Project = new Project()
-                {
-                    ProjectID = 2,
-                    Symbol = "0-6666-24-1-00"
-                }
+                Project = project2
             };
             BusinessTrip trip3 = new BusinessTrip()
             {
@@ -81,11 +85,7 @@ namespace DelegationLibrary.DataAccess
                 InitialMeter = 355273,
                 FinalMeter = 355578,
                 Keeper = pawelP,
-                Project = new Project()
-                {
-                    ProjectID = 2,
-                    Symbol = "0-6666-24-1-00"
-                }
+                Project = project2
             };
             ICar car = new Car()
             {
@@ -101,6 +101,7 @@ namespace DelegationLibrary.DataAccess
                 Drivers = new List<Driver>() { wieslaw },
                 Employees = new List<Employee>() { pawelI, pawelP },
                 BusinessTrips = new List<BusinessTrip>() { trip1, trip2 },
+                Projects = new List<Project>() { project1, project2 },
                 KilometersCards = new List<KilometersCard>() {
                     new KilometersCard() {
                         KilometerCardID = 1,
