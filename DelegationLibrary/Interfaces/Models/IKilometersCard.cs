@@ -10,5 +10,7 @@ namespace DelegationLibrary.Model
         int KilometerCardID { get; set; }
         int TotalDistance { get; }
         List<IBusinessTrip> Trips { get; set; }
+
+        string ToString();
     }
 }

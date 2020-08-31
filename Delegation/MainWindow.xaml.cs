@@ -33,6 +33,7 @@ namespace Delegation
             SetupApplication();
 
             InitializeComponent();
+            KilometersCard_ComboBox.ItemsSource = _dataCollection.KilometersCards;
         }
 
         private void SetupApplication()

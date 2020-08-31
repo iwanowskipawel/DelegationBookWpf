@@ -25,5 +25,10 @@ namespace DelegationLibrary.Model
 
         [Display(Name = "Przejechany dystans")]
         public int TotalDistance => Trips.Sum(x => x.Distance);
+
+        public override string ToString()
+        {
+            return CardSymbol;
+        }
     }
 }
