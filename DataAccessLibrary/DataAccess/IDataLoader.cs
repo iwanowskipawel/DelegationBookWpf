@@ -2,6 +2,8 @@
 {
     public interface IDataLoader
     {
-        IDataCollection LoadData();
+        IDataCollection Load();
+        bool Save(IDataCollection collection);
+
     }
 }

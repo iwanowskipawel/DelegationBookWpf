@@ -7,7 +7,7 @@ namespace DelegationLibrary.DataAccess
 {
     public class FakeLoader : IDataLoader
     {
-        public IDataCollection LoadData()
+        public IDataCollection Load()
         {
             Driver wieslaw = new Driver()
             {
@@ -100,7 +100,7 @@ namespace DelegationLibrary.DataAccess
             {
                 Drivers = new List<Driver>() { wieslaw },
                 Employees = new List<Employee>() { pawelI, pawelP },
-                BusinessTrips = new List<BusinessTrip>() { trip1, trip2, trip3 },
+                BusinessTrips = new List<BusinessTrip>() { trip1, trip2 },
                 Projects = new List<Project>() { project1, project2 },
                 KilometersCards = new List<KilometersCard>() {
                     new KilometersCard() {
@@ -122,5 +122,7 @@ namespace DelegationLibrary.DataAccess
 
             return output;
         }
+
+        public bool Save(IDataCollection collection) { return true; }
     }
 }

@@ -19,7 +19,7 @@ namespace DataAccessLibrary.DataAccess
             _path = filePath;
         }
 
-        public IDataCollection LoadData()
+        public IDataCollection Load()
         {
             DataCollection output = new DataCollection();
 
@@ -32,7 +32,7 @@ namespace DataAccessLibrary.DataAccess
             return output;
         }
 
-        public bool SaveData(IDataCollection collection)
+        public bool Save(IDataCollection collection)
         {
             XmlSerializer xsSubmit = new XmlSerializer(typeof(KilometersCard));
             FileStream fileStream = new FileStream(_path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
