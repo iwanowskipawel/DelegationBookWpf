@@ -1,5 +1,6 @@
 ﻿using DataAccessLibrary.DataAccess;
 using Delegation.ViewModels;
+using Delegation.Views;
 using DelegationLibrary.DataAccess;
 using DelegationLibrary.Model;
 using Microsoft.EntityFrameworkCore;
@@ -28,6 +29,7 @@ namespace Delegation
     public partial class MainWindow : Window
     {
         IDataCollection _dataCollection;
+        string _currentDirectory = Environment.CurrentDirectory;
 
         public MainWindow()
         {
@@ -43,8 +45,9 @@ namespace Delegation
             //IDataLoader dataLoader = new XmlLoader("D:\\Delegacje.txt");
             //IDataLoader dataLoader = new FakeLoader();
             
-            IDataLoader dataLoader = new ObjectLoader(@"D:\DelegationData.dat");
+            IDataLoader dataLoader = new ObjectLoader($"{ _currentDirectory }\\DelegationData.ddc");
             _dataCollection = DataAccess.GetCollection(dataLoader);
+            //DataAccess.SaveCollection(_dataCollection, dataLoader);
 
             KilometersCard_ComboBox.ItemsSource = _dataCollection.KilometersCards;
             KilometersCard_ComboBox.SelectedItem = _dataCollection.KilometersCards.FirstOrDefault();
@@ -102,6 +105,9 @@ namespace Delegation
 
         private void AddKilometerCard_Button_Click(object sender, RoutedEventArgs e)
         {
+            EditKilometersCard addKilometersCard = new EditKilometersCard();
+            addKilometersCard.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            addKilometersCard.Show();
         }
     }
 }
