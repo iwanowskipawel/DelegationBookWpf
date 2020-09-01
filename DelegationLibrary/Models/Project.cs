@@ -5,6 +5,7 @@ using System.Text;
 
 namespace DelegationLibrary.Model
 {
+    [Serializable]
     public class Project : IProject
     {
         [Display(Name = "ProjectID")]

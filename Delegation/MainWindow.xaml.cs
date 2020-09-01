@@ -41,7 +41,9 @@ namespace Delegation
         private void SetupApplication()
         {
             //IDataLoader dataLoader = new XmlLoader("D:\\Delegacje.txt");
-            IDataLoader dataLoader = new FakeLoader();
+            //IDataLoader dataLoader = new FakeLoader();
+            
+            IDataLoader dataLoader = new ObjectLoader(@"D:\DelegationData.dat");
             _dataCollection = DataAccess.GetCollection(dataLoader);
 
             KilometersCard_ComboBox.ItemsSource = _dataCollection.KilometersCards;

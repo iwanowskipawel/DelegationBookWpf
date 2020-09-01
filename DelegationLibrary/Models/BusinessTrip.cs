@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace DelegationLibrary.Model
 {
+    [Serializable]
     public class BusinessTrip : IBusinessTrip
     {
         [Display(Name = "BusinessTripID")]

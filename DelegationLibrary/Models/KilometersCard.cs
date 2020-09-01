@@ -6,6 +6,7 @@ using System.Text;
 
 namespace DelegationLibrary.Model
 {
+    [Serializable]
     public class KilometersCard : IKilometersCard
     {
         [Display(Name = "KilometerCardID")]

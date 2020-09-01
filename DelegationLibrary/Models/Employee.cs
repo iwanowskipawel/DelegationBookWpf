@@ -5,6 +5,7 @@ using System.Text;
 
 namespace DelegationLibrary.Model
 {
+    [Serializable]
     public class Employee : Person, IEmployee
     {
         [Display(Name = "EmployeeID")]

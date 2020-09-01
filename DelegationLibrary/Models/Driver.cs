@@ -5,6 +5,7 @@ using System.Text;
 
 namespace DelegationLibrary.Model
 {
+    [Serializable]
     public class Driver : Employee, IDriver
     {
         [Display(Name = "DriverID")]

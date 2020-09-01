@@ -5,6 +5,7 @@ using System.Text;
 
 namespace DelegationLibrary.DataAccess
 {
+    [Serializable]
     public class DataCollection : IDataCollection
     {
         public IEnumerable<IAddress> Addresses { get; set; }
