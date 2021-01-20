@@ -109,9 +109,12 @@ namespace Delegation
         private void AddTrip_Button_Click(object sender, RoutedEventArgs e)
         {
             AddTrip addTrip = new AddTrip((IKilometersCard)KilometersCard_ComboBox.SelectedItem);
+            addTrip.Driver_ComboBox.ItemsSource = _dataCollection.Drivers;
+            addTrip.Project_ComboBox.ItemsSource = _dataCollection.Projects;
+            addTrip.Keeper_ComboBox.ItemsSource = _dataCollection.Employees;
+            addTrip.Destination_ComboBox.ItemsSource = _dataCollection.Destinations;
             addTrip.Show();
-            dataGrid.ItemsSource = null;
-            dataGrid.ItemsSource = 
+
         }
     }
 }

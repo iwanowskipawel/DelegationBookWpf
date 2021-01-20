@@ -5,8 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Delegation.Views"
         mc:Ignorable="d"
-        Title="AddTrip" Height="450" Width="800">
-    <Grid>
-        
+        Title="AddTrip" Height="240" Width="580">
+    <Grid Margin="0,0,0,-6">
+        <Button Name="Save_Button" Content="Zapisz" HorizontalAlignment="Left" Height="26" Margin="339,156,0,0" VerticalAlignment="Top" Width="100" Click="Save_Button_Click"/>
+        <Button Name="Cancel_Button" Content="Anuluj" HorizontalAlignment="Left" Height="26" Margin="450,156,0,0" VerticalAlignment="Top" Width="100" Click="Cancel_Button_Click"/>
+        <Label Content="ID:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="Wyjazd:" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top"/>
+        <DatePicker Name="Departure_DataPicker" HorizontalAlignment="Left" Margin="81,40,0,0" VerticalAlignment="Top"/>
+        <Label Content="Przyjazd:" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top"/>
+        <DatePicker Name="Arrival_DataPicker" HorizontalAlignment="Left" Margin="81,70,0,0" VerticalAlignment="Top"/>
+        <Label Content="Kierowca:" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="Driver_ComboBox" HorizontalAlignment="Left" Margin="81,100,0,0" VerticalAlignment="Top" Width="170"/>
+        <Label Content="Temat:" HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="Project_ComboBox" HorizontalAlignment="Left" Margin="81,130,0,0" VerticalAlignment="Top" Width="170"/>
+        <Label Content="Dysponent:" HorizontalAlignment="Left" Margin="10,160,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="Keeper_ComboBox" HorizontalAlignment="Left" Margin="81,160,0,0" VerticalAlignment="Top" Width="170"/>
+        <Label Content="Miejsce docelowe:" HorizontalAlignment="Left" Margin="275,40,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="Destination_ComboBox" HorizontalAlignment="Left" Margin="430,41,0,0" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Stan licznika początkowy:" HorizontalAlignment="Left" Margin="275,70,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="InitialMeter_TextBox" HorizontalAlignment="Left" Margin="430,72,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="26"/>
+        <Label Content="Stan licznika końcowy:" HorizontalAlignment="Left" Margin="275,100,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="FinalMeter_TextBox" HorizontalAlignment="Left" Margin="430,102,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="26"/>
+        <TextBlock Name="BusinessTripID_TextBlock" HorizontalAlignment="Left" Margin="84,15,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top"/>
     </Grid>
 </Window>

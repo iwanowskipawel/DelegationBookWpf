@@ -21,15 +21,37 @@ namespace Delegation.Views
     public partial class AddTrip : Window
     {
         IKilometersCard _kilometersCard;
+        int nextID;
         public AddTrip(IKilometersCard card)
         {
             InitializeComponent();
             _kilometersCard = card;
+            nextID = _kilometersCard.Trips.Count + 1;
+            BusinessTripID_TextBlock.Text = nextID.ToString();
         }
-        protected override void OnClosing(CancelEventArgs e)
+
+        private void Save_Button_Click(object sender, RoutedEventArgs e)
         {
-            base.OnClosing(e);
-            _kilometersCard.Trips.Add(new BusinessTrip { BusinessTripID = 3 });
+
+            _kilometersCard.Trips.Add(new BusinessTrip
+            {
+                BusinessTripID = nextID,
+                DepartureDate = Departure_DataPicker.SelectedDate.Value,
+                ArrivalDate = Arrival_DataPicker.SelectedDate.Value,
+                Driver = (IDriver)Driver_ComboBox.SelectedItem,
+                Destination = (IDestination)Destination_ComboBox.SelectedItem,
+                InitialMeter = int.Parse(InitialMeter_TextBox.Text),
+                FinalMeter = int.Parse(FinalMeter_TextBox.Text),
+                Keeper = (IEmployee)Keeper_ComboBox.SelectedItem,
+                Project = (IProject)Project_ComboBox.SelectedItem
+            }) ;
+
+            this.Close();
+        }
+
+        private void Cancel_Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
