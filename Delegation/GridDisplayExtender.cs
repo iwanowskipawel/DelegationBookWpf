@@ -34,7 +34,7 @@ namespace Delegation
             }
         }
 
-        public static void DisplayBusinessTrips(this IEnumerable<IBusinessTrip> trips, DataGrid dataGrid)
+        public static void DisplayIn(this IEnumerable<IBusinessTrip> trips, DataGrid dataGrid)
         {
             var businessTrips = new ObservableCollection<BusinessTripViewModel>();
             foreach (var trip in trips)

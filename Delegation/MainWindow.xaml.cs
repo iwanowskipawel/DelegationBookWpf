@@ -35,14 +35,10 @@ namespace Delegation
         {
             InitializeComponent();
             SetupApplication();
-
-            //XmlLoader loader = new XmlLoader("D:\\Delegacje.txt");
-            //loader.SaveData(_dataCollection);
         }
 
         private void SetupApplication()
         {
-            //IDataLoader dataLoader = new XmlLoader("D:\\Delegacje.txt");
             //IDataLoader dataLoader = new FakeLoader();
             
             IDataLoader dataLoader = new ObjectLoader($"{ _currentDirectory }\\DelegationData.ddc");
@@ -61,7 +57,7 @@ namespace Delegation
             var card = _dataCollection.KilometersCards.FirstOrDefault(k => k.CardSymbol == cardSymbol);
             var trips = card.Trips;
             DisplayKilometerCardSummaryInTextBox(card);
-            trips.DisplayBusinessTrips(dataGrid);
+            trips.DisplayIn(dataGrid);
         }
 
         private void DisplayProject(string symbol)
@@ -72,7 +68,7 @@ namespace Delegation
             IEnumerable<IBusinessTrip> trips = _dataCollection.BusinessTrips
                 .Where(t => t.Project.ProjectID == project.ProjectID);
 
-            trips.DisplayBusinessTrips(projects_dataGrid);
+            trips.DisplayIn(projects_dataGrid);
         }
 
         private void KilometersCard_ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -108,6 +104,14 @@ namespace Delegation
             EditKilometersCard addKilometersCard = new EditKilometersCard(_dataCollection.KilometersCards.First());
             addKilometersCard.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             addKilometersCard.Show();
+        }
+
+        private void AddTrip_Button_Click(object sender, RoutedEventArgs e)
+        {
+            AddTrip addTrip = new AddTrip((IKilometersCard)KilometersCard_ComboBox.SelectedItem);
+            addTrip.Show();
+            dataGrid.ItemsSource = null;
+            dataGrid.ItemsSource = 
         }
     }
 }
