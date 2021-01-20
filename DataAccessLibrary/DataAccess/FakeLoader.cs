@@ -9,37 +9,37 @@ namespace DelegationLibrary.DataAccess
     {
         public IDataCollection Load()
         {
-            Driver wieslaw = new Driver()
+            IDriver wieslaw = new Driver()
             {
                 EmployeeID = 1,
                 FirstName = "Wiesław",
                 LastName = "Eychler"
             };
-            Employee pawelI = new Employee()
+            IEmployee pawelI = new Employee()
             {
                 EmployeeID = 2,
                 FirstName = "Paweł",
                 LastName = "Iwanowski"
             };
-            Employee pawelP = new Employee()
+            IEmployee pawelP = new Employee()
             {
                 EmployeeID = 3,
                 FirstName = "Paweł",
                 LastName = "Pietruszewski"
             };
 
-            Project project1 = new Project()
+            IProject project1 = new Project()
             {
                 ProjectID = 1,
                 Symbol = "0-6541-24-1-00"
             };
-            Project project2 = new Project()
+            IProject project2 = new Project()
             {
                 ProjectID = 2,
                 Symbol = "0-6666-24-1-00"
             };
             
-            BusinessTrip trip1 = new BusinessTrip()
+            IBusinessTrip trip1 = new BusinessTrip()
             {
                 BusinessTripID = 1,
                 DepartureDate = new DateTime(2020, 7, 13),
@@ -55,7 +55,7 @@ namespace DelegationLibrary.DataAccess
                 Keeper = pawelI,
                 Project = project1
             };
-            BusinessTrip trip2 = new BusinessTrip()
+            IBusinessTrip trip2 = new BusinessTrip()
             {
                 BusinessTripID = 2,
                 DepartureDate = new DateTime(2020, 7, 16),
@@ -71,7 +71,7 @@ namespace DelegationLibrary.DataAccess
                 Keeper = pawelP,
                 Project = project2
             };
-            BusinessTrip trip3 = new BusinessTrip()
+            IBusinessTrip trip3 = new BusinessTrip()
             {
                 BusinessTripID = 3,
                 DepartureDate = new DateTime(2020, 7, 22),
@@ -98,11 +98,11 @@ namespace DelegationLibrary.DataAccess
 
             IDataCollection output = new DataCollection()
             {
-                Drivers = new List<Driver>() { wieslaw },
-                Employees = new List<Employee>() { pawelI, pawelP },
-                BusinessTrips = new List<BusinessTrip>() { trip1, trip2 },
-                Projects = new List<Project>() { project1, project2 },
-                KilometersCards = new List<KilometersCard>() {
+                Drivers = new List<IDriver>() { wieslaw },
+                Employees = new List<IEmployee>() { pawelI, pawelP },
+                BusinessTrips = new List<IBusinessTrip>() { trip1, trip2 },
+                Projects = new List<IProject>() { project1, project2 },
+                KilometersCards = new List<IKilometersCard>() {
                     new KilometersCard() {
                         KilometerCardID = 1,
                         Car = car,

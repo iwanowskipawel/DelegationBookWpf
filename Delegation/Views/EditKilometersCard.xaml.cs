@@ -1,4 +1,5 @@
-﻿using DelegationLibrary.Model;
+﻿using DelegationLibrary.DataAccess;
+using DelegationLibrary.Model;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -18,9 +19,17 @@ namespace Delegation.Views
     /// </summary>
     public partial class EditKilometersCard : Window
     {
+        
+
         public EditKilometersCard()
         {
             InitializeComponent();
+        }
+
+        public EditKilometersCard(IKilometersCard card)
+        {
+            InitializeComponent();
+            CarSelection_comboBox.SelectedItem = card.Car;
         }
 
         private void Cancel_button_Click(object sender, RoutedEventArgs e)

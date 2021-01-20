@@ -26,7 +26,7 @@ namespace DataAccessLibrary.DataAccess
                     f.Close();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw new Exception("Wystąpił błąd w trakcie wczytywania pliku.", ex);
             }

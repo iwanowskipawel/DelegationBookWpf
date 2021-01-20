@@ -105,7 +105,7 @@ namespace Delegation
 
         private void AddKilometerCard_Button_Click(object sender, RoutedEventArgs e)
         {
-            EditKilometersCard addKilometersCard = new EditKilometersCard();
+            EditKilometersCard addKilometersCard = new EditKilometersCard(_dataCollection.KilometersCards.First());
             addKilometersCard.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             addKilometersCard.Show();
         }
