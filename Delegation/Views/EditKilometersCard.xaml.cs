@@ -19,8 +19,8 @@ namespace Delegation.Views
     /// </summary>
     public partial class EditKilometersCard : Window
     {
-        
-
+        public IKilometersCard KilometersCard { get; set; }
+        public bool Success { get; private set; } = false;
         public EditKilometersCard()
         {
             InitializeComponent();
@@ -29,7 +29,8 @@ namespace Delegation.Views
         public EditKilometersCard(IKilometersCard card)
         {
             InitializeComponent();
-            CarSelection_comboBox.SelectedItem = card.Car;
+            KilometersCard = card;
+            CarSelection_comboBox.SelectedItem = KilometersCard.Car;
         }
 
         private void Cancel_button_Click(object sender, RoutedEventArgs e)
@@ -39,6 +40,18 @@ namespace Delegation.Views
 
         private void Save_Button_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                KilometersCard.Car = (ICar)CarSelection_comboBox.SelectedItem;
+                KilometersCard.CardSymbol = CardSymbol_textBox.Text;
+                KilometersCard.WorkCardNumber = WorkCardNumber_textBox.Text;
+
+                Success = true;
+            }
+            catch(Exception ex)
+            {
+                throw new Exception("Błąd przy zapisie Karty Kilometrowej", ex);
+            }
             this.Close();
         }
 

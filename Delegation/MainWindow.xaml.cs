@@ -39,9 +39,9 @@ namespace Delegation
 
         private void SetupApplication()
         {
-            //IDataLoader dataLoader = new FakeLoader();
+            IDataLoader dataLoader = new FakeLoader();
             
-            IDataLoader dataLoader = new ObjectLoader($"{ _currentDirectory }\\DelegationData.ddc");
+            //IDataLoader dataLoader = new ObjectLoader($"{ _currentDirectory }\\DelegationData.ddc");
             _dataCollection = DataAccess.GetCollection(dataLoader);
             //DataAccess.SaveCollection(_dataCollection, dataLoader);
 
@@ -101,9 +101,21 @@ namespace Delegation
 
         private void AddKilometerCard_Button_Click(object sender, RoutedEventArgs e)
         {
-            EditKilometersCard addKilometersCard = new EditKilometersCard(_dataCollection.KilometersCards.First());
-            addKilometersCard.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-            addKilometersCard.Show();
+            EditKilometersCard addCardWindow = new EditKilometersCard(new KilometersCard());
+            addCardWindow.CarSelection_comboBox.ItemsSource = _dataCollection.Cars;
+
+            addCardWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            addCardWindow.ShowDialog();
+
+            if (addCardWindow.Success)
+            {
+                IKilometersCard card = addCardWindow.KilometersCard;
+                card.KilometerCardID = _dataCollection.KilometersCards.Count + 1;
+                card.Trips = new List<IBusinessTrip>();
+
+                _dataCollection.KilometersCards.Add(card);
+            }
+
         }
 
         private void AddTrip_Button_Click(object sender, RoutedEventArgs e)
@@ -114,7 +126,6 @@ namespace Delegation
             addTrip.Keeper_ComboBox.ItemsSource = _dataCollection.Employees;
             addTrip.Destination_ComboBox.ItemsSource = _dataCollection.Destinations;
             addTrip.Show();
-
         }
     }
 }

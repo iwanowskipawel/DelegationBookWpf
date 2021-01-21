@@ -102,6 +102,7 @@ namespace DelegationLibrary.DataAccess
                 Employees = new List<IEmployee>() { pawelI, pawelP },
                 BusinessTrips = new List<IBusinessTrip>() { trip1, trip2 },
                 Projects = new List<IProject>() { project1, project2 },
+                Cars = new List<ICar>() { car },
                 KilometersCards = new List<IKilometersCard>() {
                     new KilometersCard() {
                         KilometerCardID = 1,
