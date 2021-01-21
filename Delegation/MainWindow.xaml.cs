@@ -109,11 +109,10 @@ namespace Delegation
 
             if (addCardWindow.Success)
             {
-                IKilometersCard card = addCardWindow.KilometersCard;
-                card.KilometerCardID = _dataCollection.KilometersCards.Count + 1;
-                card.Trips = new List<IBusinessTrip>();
+                addCardWindow.KilometersCard.KilometerCardID = _dataCollection.KilometersCards.Count + 1;
+                addCardWindow.KilometersCard.Trips = new List<IBusinessTrip>();
 
-                _dataCollection.KilometersCards.Add(card);
+                _dataCollection.KilometersCards.Add(addCardWindow.KilometersCard);
             }
 
         }
