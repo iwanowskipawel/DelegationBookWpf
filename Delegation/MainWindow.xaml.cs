@@ -57,7 +57,15 @@ namespace Delegation
             var card = _dataCollection.KilometersCards.FirstOrDefault(k => k.CardSymbol == cardSymbol);
             var trips = card.Trips;
             DisplayKilometerCardSummaryInTextBox(card);
-            trips.DisplayIn(dataGrid);
+            
+            if (trips?.Count > 0)
+            {
+                trips.DisplayIn(dataGrid);
+            }
+            else
+            {
+                dataGrid.ItemsSource = null;
+            }
         }
 
         private void DisplayProject(string symbol)
