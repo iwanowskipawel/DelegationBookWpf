@@ -58,13 +58,13 @@ namespace Delegation
             var trips = card.Trips;
             DisplayKilometerCardSummaryInTextBox(card);
             
-            if (trips?.Count > 0)
+            if (trips?.Count < 1)
             {
-                trips.DisplayIn(dataGrid);
+                dataGrid.ItemsSource = null;
             }
             else
             {
-                dataGrid.ItemsSource = null;
+                trips.DisplayIn(dataGrid);
             }
         }
 
